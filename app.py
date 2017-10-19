@@ -23,24 +23,25 @@ def webhook():
 #    print("Request:")
 #    print(json.dumps(req, indent=4))
 
-    res = processRequest(req)
+    res = 1 
+    #processRequest(req)
 
     res = json.dumps(res, indent=4)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def processRequest(req):
-    docpart = req.get("result").get("parameters").get("docpart")
+#def processRequest(req):
+#    docpart = req.get("result").get("parameters").get("docpart")
  #   if req.get("result").get("action") != "docreaderapi":
  #       return {}
-    baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + docpart + "')"
-    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-    result = urlopen(yql_url).read()
-    data = json.loads(result)
-    res = makeWebhookResult(data, req)
-    return res
+#    baseurl = "https://query.yahooapis.com/v1/public/yql?"
+#    yql_query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + docpart + "')"
+#    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
+#    result = urlopen(yql_url).read()
+#    data = json.loads(result)
+#    res = makeWebhookResult(data, req)
+#    return res
 
 def makeWebhookResult(data, req):
     docpart = req.get("result").get("parameters").get("docpart")
@@ -68,8 +69,8 @@ def makeWebhookResult(data, req):
     else:
         speech = "Sorry but I did not understand your request. What do you want me to do?"
         
-    print("Summary:")
-    print(speech)
+ #   print("Summary:")
+ #   print(speech)
 
     return {
         "speech": speech,
@@ -80,6 +81,6 @@ def makeWebhookResult(data, req):
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
-    print("Starting app on port %d" % port)
+  #  print("Starting app on port %d" % port)
 
     app.run(debug=False, port=port, host='0.0.0.0')
