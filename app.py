@@ -26,11 +26,9 @@ def webhook():
 
 def processRequest(req):
     docpart = req.get("result").get("parameters").get("docpart")
-    baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + docpart + "')"
-    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-    result = urlopen(yql_url).read()
-    data = json.loads(result)
+    yql_url = "https://query.yahooapis.com/v1/public/yql?" + urlencode({'q': yql_query}) + "&format=json"
+    data = json.loads(urlopen(yql_url).read())
     res = makeWebhookResult(data, req)
     return res
 
