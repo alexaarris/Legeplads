@@ -16,7 +16,6 @@ from flask import make_response
 # Flask app should start in global layout
 app = Flask(__name__)
 
-
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
@@ -31,11 +30,10 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-
 def processRequest(req):
     docpart = req.get("result").get("parameters").get("docpart")
-    if req.get("result").get("action") != "docreaderapi":
-        return {}
+ #   if req.get("result").get("action") != "docreaderapi":
+ #       return {}
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + docpart + "')"
     yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
@@ -43,12 +41,6 @@ def processRequest(req):
     data = json.loads(result)
     res = makeWebhookResult(data, req)
     return res
-
-
-#def makeYqlQuery(req):
-
- #   return 
-
 
 def makeWebhookResult(data, req):
     docpart = req.get("result").get("parameters").get("docpart")
