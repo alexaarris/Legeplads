@@ -37,11 +37,16 @@ def makeWebhookResult(data, req):
     UnitSales = req.get("result").get("parameters").get("UnitSales")
     
     if UnitSales == 'W':
-        docpart = "WUnitSales"
+        #docpart = "WUnitSales"
+        speech = "W generated much higher unit sales in September 2017 than September 2016. Its unit sales increased by 433 units (22.85%), from 1,895 units in September 2016 to 2,328 units in September 2017. Geographically, Copenhagen (251, 64.03%), Paris (157, 28.04%), Vienna (39, 39.8%), Not Assigned (23, 43.4%), and Berlin (20, 117.65%) were the largest contributors to the increase in W's unit sales and Helsinki (-27, -34.18%), Bern (-26, -54.17%), Astana (-18, -45%), Amsterdam (-10, -3.33%), and Stockholm (-8, -9.76%) were the largest detractors from the increase in W's unit sales."
     elif UnitSales == 'D':
-        docpart = "DUnitSales"
+        #docpart = "DUnitSales"
+        speech = "D's unit sales increased by 142 (13.28%), from 1,069 in September 2016 to 1,211 in September 2017. Split by product types, DSL (101, 315.63%), MHL (71, 133.96%), and FHC (51, 300%) were the largest contributors to the increase in D's unit sales and PAL (-118, -71.95%), DKL (-40, -8.68%), and DFD (-12, -16%) were the largest detractors from the increase in D's unit sales. In September 2017, D generated a unit sales of 1,211. DKL (421), which accounted for 34.76% of the unit sales of the contributors to the product group's unit sales, RFL (185), which accounted for 15.28%, and DSL (133), which accounted for 10.98%, were the largest contributors to the product group's unit sales and accounted for 61.02% of the unit sales of the contributors to its unit sales."
     elif UnitSales == 'Other':
-        docpart = "OtherUnitSales"
+        #docpart = "OtherUnitSales"
+        speech = "F's unit sales decreased by 2 units (3.03%), from 66 units in September 2016 to 64 units in September 2017. T's unit sales increased by 1 unit (14.29%), from 7 units in September 2016 to 8 units in September 2017."        
+
+
     else:    
         if docpart == 'Summary':
             speech = "In September 2017, 2 product groups were above the benchmark unit sales of 1,000 units. W (2,328 units), which accounted for 61.78% of the product groups' unit sales, generated the highest unit sales and T (8 units), which accounted for 0.21% of the product groups' unit sales, generated the lowest unit sales. Product comparisons: W generated much higher unit sales than D, which generated the second highest unit sales, did (by 1,117 units)."
