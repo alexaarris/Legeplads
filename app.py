@@ -51,7 +51,7 @@ def makeWebhookResult(data, req):
         speech = "0 (291, 22.61%), 2 (174, 33.4%), and 1 (3, inf%) drove the increase in the product group's unit sales and + (-22, -42.31%), 3 (-11, -33.33%), and Not Assigned (-2, -100%) offset the increase in its unit sales."
     elif docpart == 'PVariant':
         speech = "66 (627, 141.22%) and 60 (67, inf%) were the largest contributors to the increase in the product group's unit sales and 70 (-184, -14.08%) and 73 (-39, -100%) were the largest detractors from the increase in its unit sales."
-        elif docpart == 'DUnitSales':
+    elif docpart == 'DUnitSales':
         speech = "D's unit sales increased by 142 (13.28%), from 1,069 in September 2016 to 1,211 in September 2017. Split by product types, DSL (101, 315.63%), MHL (71, 133.96%), and FHC (51, 300%) were the largest contributors to the increase in D's unit sales and PAL (-118, -71.95%), DKL (-40, -8.68%), and DFD (-12, -16%) were the largest detractors from the increase in D's unit sales. In September 2017, D generated a unit sales of 1,211. DKL (421), which accounted for 34.76% of the unit sales of the contributors to the product group's unit sales, RFL (185), which accounted for 15.28%, and DSL (133), which accounted for 10.98%, were the largest contributors to the product group's unit sales and accounted for 61.02% of the unit sales of the contributors to its unit sales."
     elif docpart == 'OtherUnitSales':
         speech = "F's unit sales decreased by 2 units (3.03%), from 66 units in September 2016 to 64 units in September 2017. T's unit sales increased by 1 unit (14.29%), from 7 units in September 2016 to 8 units in September 2017."        
