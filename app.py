@@ -37,11 +37,11 @@ def makeWebhookResult(data, req):
     UnitSales = req.get("result").get("parameters").get("UnitSales")
     
     if UnitSales == 'W':
-        docpart == "WUnitSales"
+        docpart = "WUnitSales"
     elif UnitSales == 'D':
-        docpart == "DUnitSales"
+        docpart = "DUnitSales"
     elif UnitSales == 'Other':
-        docpart == "OtherUnitSales"
+        docpart = "OtherUnitSales"
     else:    
         if docpart == 'Summary':
             speech = "In September 2017, 2 product groups were above the benchmark unit sales of 1,000 units. W (2,328 units), which accounted for 61.78% of the product groups' unit sales, generated the highest unit sales and T (8 units), which accounted for 0.21% of the product groups' unit sales, generated the lowest unit sales. Product comparisons: W generated much higher unit sales than D, which generated the second highest unit sales, did (by 1,117 units)."
